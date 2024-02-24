@@ -32,10 +32,20 @@ In order to show how this works, we've made a simple C program that check if a g
 ## Languages and Tools
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 
+
 ## Requirements
-```
-todo
-```
+To build and run this project, you'll need:
+- CMake
+
+## Building the Project
+Follow these steps to build the project using CMake:
+1. Clone the repository to your local machine: git clone https://github.com/...
+2. Navigate to the project directory: cd your-repository
+3. Create a build directory: mkdir build --> cd build
+4. Generate the build files using CMake: cmake ..
+5. Build the project using the appropriate build tool (e.g., make): make
+
+After following these steps, you should find the compiled executable in the build directory. You can run the executable to execute the program.
 
 ## License
 
