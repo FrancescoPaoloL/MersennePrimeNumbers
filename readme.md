@@ -1,5 +1,33 @@
 # Mersenne Prime Numbers
-todo
+Mersenne primes are a subset of prime numbers that follow a particular pattern, where they can be expressed as "2^p - 1" form (with 'p' as  prime number).
+Why this form? When 'p' is a prime number, "2^p" is an even number because it's a power of 2. Subtracting 1 from an even number results in an odd number.
+
+The code besides the trial division method used to check if a number is prime, the code also utilizes the Lucas–Lehmer test (LLT) to determine if a given number is a prime exponent. How it works? 
+
+$$
+\text{s}_i = 
+\begin{cases}
+  4 & \text{if } |i| = 0 \\
+  s_{i-1}^2 - 2& \text{otherwise}.
+\end{cases}
+$$
+
+So if
+
+$$
+s_{p-2} \equiv 0 \ (\text{mod} \ M_p)
+$$
+
+then the original prime number pp is a prime exponent, suggesting that 
+
+$$
+M_p
+$$​
+
+could be a Mersenne prime. 
+
+In order to show how this works, we've made a simple C program that check if a given number is prime and if it's a prime exponent, which is a necessary condition for a Mersenne prime about first 1M numbers.
+
 
 ## Languages and Tools
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
@@ -8,9 +36,6 @@ todo
 ```
 todo
 ```
-
-## Test Coverage
-TODO
 
 ## License
 
