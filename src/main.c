@@ -3,16 +3,7 @@
 #include <time.h>
 #include <stdint.h>
 
-#define UPPER_LIMIT 1000000 // Define the upper limit for prime searching
-
-/*
-    Trial Division: The algorithm checks divisibility by small primes (2 and 3) and then checks divisibility by numbers of the form 6k ± 1, a common technique in trial division.
-
-    Sieve of Eratosthenes: While not directly implementing the Sieve of Eratosthenes, the algorithm's approach of eliminating multiples of 2 and 3 is reminiscent of this ancient prime sieving method.
-
-    Primality Tests: Although not as sophisticated as probabilistic or deterministic primality tests like Miller-Rabin or AKS primality test, respectively, the algorithm's approach shares similarities with simpler primality tests by performing divisibility checks.
-*/
-
+#define UPPER_LIMIT 1000000
 
 bool is_prime(uint64_t n) {
     // No zero or negative numbers are prime
@@ -50,11 +41,18 @@ bool is_prime_exponent(uint64_t p) {
     if (p == 2) return true; // Special case for p = 2
     uint64_t s = 4;
     // Use Lucas-Lehmer primality test for Mersenne primes
-    // 1ULL to ensure that the number 1 is treated as an unsigned long long integer (bit manipulation operations)
+    // Please note 1ULL instead of just "1 << p"
+    // because the result can become very large, especially when 'p' is a large prime number. 
+    // So the number 1 is treated as an unsigned long long integer.
+    // example:
+    //      1ULL        = 0000000000000000000000000000000000000000000000000000000000000001 (64-bit representation)
+    //      1ULL << 1   = 0000000000000000000000000000000000000000000000000000000000000010  which is equivalent to the decimal number 2.
+    //      etc
+    // (remember that left shifting a binary number by 'n' positions effectively multiplies it by 2^n...)
     for (uint64_t i = 3; i <= p; i++) {
         s = (s * s - 2) % ((1ULL << p) - 1);
     }
-    return s == 0; // If s equals 0, 2^p - 1 is prime
+    return s == 0;
 }
 
 void find_mersenne_primes(int upb, FILE *output_file) {
