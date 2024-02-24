@@ -8,9 +8,10 @@ $$
 \text{s}_i = 
 \begin{cases}
   4 & \text{if } |i| = 0 \\
-  s_{i-1}^2 - 2& \text{otherwise}.
+  s_{i-1}^2 - 2& \text{otherwise.}
 \end{cases}
 $$
+
 
 So if
 
