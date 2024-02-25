@@ -32,7 +32,7 @@ To build and run this project, you'll need:
 
 ## Building the Project
 Follow these steps to build the project using CMake:
-1. Clone the repository to your local machine: git clone https://github.com/...
+1. Clone the repository to your local machine: git clone https://github.com/FrancescoPaoloL/MersennePrimeNumbers.git
 2. Navigate to the project directory: cd your-repository
 3. Create a build directory: mkdir build --> cd build
 4. Generate the build files using CMake: cmake ..
